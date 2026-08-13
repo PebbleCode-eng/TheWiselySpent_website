@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wisely Spent — Spend intentionally, earn meaningfully</title>
+  <link rel="stylesheet" href="styles/theme.css">
+  <style>
+    /* Navigation & Header */
+    header {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--bg-stone-light);
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .brand-logo span {
+      font-size: 1.4rem;
+      color: var(--text-ink);
+      font-weight: 300;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 5rem 0 3rem 0;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      margin-top: 1rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.3rem;
+      color: var(--text-ink-light);
+      max-width: 600px;
+      margin: 1.5rem auto 0 auto;
+    }
+
+    /* Pinned Challenge Card */
+    .pinned-challenge {
+      background-color: var(--bg-cream);
+      border: 1px solid var(--bg-stone-light);
+      padding: 2.5rem;
+      margin: 3rem 0 5rem 0;
+      position: relative;
+    }
+
+    .pinned-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-rust);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .pinned-challenge h2 {
+      margin-bottom: 0.75rem;
+    }
+
+    .pinned-challenge p {
+      color: var(--text-ink-light);
+      max-width: 700px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Article Feed Grid */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      margin: 2.5rem 0 5rem 0;
+    }
+
+    .article-card {
+      background: var(--bg-warm-white);
+      border-bottom: 1px solid var(--bg-stone-light);
+      padding-bottom: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: opacity 0.2s ease;
+    }
+
+    .article-card:hover {
+      opacity: 0.8;
+    }
+
+    .article-tag {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent-sage);
+      margin-bottom: 0.5rem;
+    }
+
+    .article-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .article-card p {
+      font-size: 1.05rem;
+      color: var(--text-ink-light);
+      line-height: 1.5;
+    }
+
+    /* App Teaser Banner */
+    .app-teaser {
+      background-color: var(--bg-stone-light);
+      padding: 3.5rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 5rem;
+    }
+
+    @media (max-width: 768px) {
+      .app-teaser {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* Newsletter Box */
+    .newsletter-section {
+      text-align: center;
+      padding: 4rem 2rem;
+      background-color: var(--bg-cream);
+      border: 1px solid var(--bg-stone-light);
+      margin-bottom: 5rem;
+    }
+
+    .newsletter-form {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      max-width: 460px;
+      margin: 1.5rem auto 0 auto;
+    }
+
+    .newsletter-form input[type="email"] {
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--text-ink);
+      background: var(--bg-warm-white);
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="container nav-container">
+      <a href="/" class="brand-logo">
+        <img src="assets/dandelion-mark.png" alt="Wisely Spent Dandelion" width="28">
+        <span>Wisely Spent</span>
+      </a>
+      <nav style="display: flex; gap: 2rem; align-items: center;">
+        <a href="#articles" style="color: var(--text-ink); text-decoration: none;">Articles</a>
+        <a href="/the-earn-lens.html" style="color: var(--text-ink); text-decoration: none;">The Earn Lens</a>
+        <a href="#waitlist" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.95rem;">Join Waitlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <span class="handwritten">honestly? spend it on purpose.</span><br>
+      <h1 class="hero-title">An intentional-living magazine for redesigning time and money.</h1>
+      <p class="hero-sub">Specific real numbers, real decisions, and cutting everything that doesn't serve you.</p>
+    </section>
+
+    <!-- Pinned Article / Ongoing Challenge -->
+    <section class="pinned-challenge">
+      <div class="pinned-badge">
+        <span>📌 ONGOING CHALLENGE</span>
+      </div>
+      <h2>The 30-Day Time & Spending Audit</h2>
+      <p>A hands-on challenge to log where every hour and euro goes. Reclaim your focus, eliminate low-value recurring leaks, and rebuild your baseline habits without preachy rules or hustle-culture pressure.</p>
+      <a href="https://wiselyspent.substack.com/" target="_blank" class="btn-primary">Join the Challenge</a>
+    </section>
+
+    <!-- 7 Core Articles Grid -->
+    <section id="articles">
+      <h2 style="margin-bottom: 1.5rem; font-size: 2rem;">Latest Articles</h2>
+      <div class="articles-grid">
+
+        <!-- Article 1 -->
+        <a href="https://wiselyspent.substack.com/" target="_blank" class="article-card">
+          <div>
+            <div class="article-tag">Time Systems</div>
+            <h3>5 things I cut to save 10 hours a week</h3>
+            <p>A direct, no-padding breakdown of weekly schedule tradeoffs and reclaiming rest without guilt.</p>
+          </div>
+        </a>
+
+        <!-- Article 2 -->
+        <a href="https://wiselyspent.substack.com/" target="_blank" class="article-card">
+          <div>
+            <div class="article-tag">Money Optimization</div>
+            <h3>I saved €4,000 by cutting one subscription</h3>
+            <p>Specific real numbers on recurring expenses and identifying silent financial drains.</p>
+          </div>
+        </a>
+
+        <!-- Article 3 -->
+        <a href="https://wiselyspent.substack.com/" target="_blank" class="article-card">
+          <div>
+            <div class="article-tag">Habits & Systems</div>
+            <h3>How I plan a month of money in 20 minutes</h3>
+            <p>No cluttered finance graphs or budgeting spreadsheets—just a simple, calm monthly routine.</p>
+          </div>
+        </a>
+
+        <!-- Article 4 -->
+        <a href="https://wiselyspent.substack.com/" target="_blank" class="article-card">
+          <div>
+            <div class="article-tag">Intentional Living</div>
+            <h3>The quiet luxury of fewer, better choices</h3>
+            <p>Choosing intentional curation over endless consumption in your daily schedule and surroundings.</p>
+          </div>
+        </a>
+
+        <!-- Article 5 -->
+        <a href="https://wiselyspent.substack.com/" target="_blank" class="article-card">
+          <div>
+            <div class="article-tag">Mindset</div>
+            <h3>Designing an exit from hustle culture</h3>
+            <p>Why "grind energy" burns out and how considered freedom builds sustainable consistency.</p>
+          </div>
+        </a>
+
+        <!-- Article 6 -->
+        <a href="https://wiselyspent.substack.com/" target="_blank" class="article-card">
+          <div>
+            <div class="article-tag">Systems</div>
+            <h3>Building a lean weekly routine</h3>
+            <p>Step-by-step layout for organizing your energy and focus around what actually matters.</p>
+          </div>
+        </a>
+
+        <!-- Article 7 -->
+        <a href="https://wiselyspent.substack.com/" target="_blank" class="article-card">
+          <div>
+            <div class="article-tag">Application</div>
+            <h3>The spend vs. earn calculation</h3>
+            <p>Shifting focus from strict cutting to high-leverage earning and time preservation.</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Mobile App Teaser Section -->
+    <section class="app-teaser">
+      <div>
+        <span class="badge-beta" style="margin-bottom: 0.75rem;"><div class="badge-dot"></div> TestFlight Private Beta</span>
+        <h2 style="margin-top: 0.5rem;">The Earn Lens</h2>
+        <p style="color: var(--text-ink-light); max-width: 500px; margin-top: 0.5rem;">
+          Our companion app reframe purchases into the working hours required to pay for them. Zero bank syncs, zero ad tracking.
+        </p>
+      </div>
+      <a href="/the-earn-lens.html" class="btn-primary">Explore The App</a>
+    </section>
+
+    <!-- Substack Newsletter Waitlist Section -->
+    <section id="waitlist" class="newsletter-section">
+      <span class="handwritten">a friend who's good with money.</span>
+      <h2 style="margin-top: 0.5rem;">Join the Wisely Spent Newsletter</h2>
+      <p style="color: var(--text-ink-light); margin-top: 0.5rem;">
+        Get thought-provoking reflections, organizing hacks, and financial lessons delivered directly to your inbox.
+      </p>
+
+      <form class="newsletter-form" action="https://wiselyspent.substack.com/subscribe" method="get" target="_blank">
+        <input type="email" name="email" placeholder="Enter your email address" required>
+        <button type="submit" class="btn-primary">Subscribe</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer style="padding: 3rem 0; border-top: 1px solid var(--bg-stone-light); text-align: center;">
+    <div class="container">
+      <img src="assets/dandelion-mark.png" alt="Wisely Spent Dandelion" width="24" style="opacity: 0.8;">
+      <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem; font-size: 0.95rem;">
+        <a href="/the-earn-lens.html" style="color: var(--text-ink); text-decoration: none;">The Earn Lens</a>
+        <a href="/privacy.html" style="color: var(--text-ink); text-decoration: none;">Privacy Policy</a>
+        <a href="https://wiselyspent.substack.com" target="_blank" style="color: var(--text-ink); text-decoration: none;">Substack</a>
+        <a href="https://pinterest.com" target="_blank" style="color: var(--text-ink); text-decoration: none;">Pinterest</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
