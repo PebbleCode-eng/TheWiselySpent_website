@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Earn Lens — Wisely Spent</title>
+  <link rel="stylesheet" href="styles/theme.css">
+  <style>
+    /* Page-specific styling */
+    .app-hero {
+      padding: 5rem 0 3rem 0;
+      text-align: center;
+    }
+    .app-hero p.lead {
+      font-size: 1.35rem;
+      color: var(--text-ink-light);
+      max-width: 620px;
+      margin: 1.5rem auto 2rem auto;
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+    
+    .feature-card {
+      background-color: var(--bg-cream);
+      padding: 2.5rem 2rem;
+      border: 1px solid var(--bg-stone-light);
+    }
+    .feature-card h3 {
+      margin-bottom: 0.75rem;
+    }
+    
+    .testflight-box {
+      background-color: var(--accent-sage-light);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin: 4rem 0;
+    }
+    .testflight-box form {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      max-width: 480px;
+      margin: 1.5rem auto 0 auto;
+    }
+    .testflight-box input[type="email"] {
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--text-ink);
+      background: var(--bg-warm-white);
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header style="padding: 2rem 0; border-bottom: 1px solid var(--bg-stone-light);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+      <a href="/" style="text-decoration: none; display: flex; align-items: center; gap: 0.75rem;">
+        <img src="assets/dandelion-mark.png" alt="Wisely Spent Dandelion" width="28">
+        <span style="font-size: 1.4rem; color: var(--text-ink); font-weight: 300;">Wisely Spent</span>
+      </a>
+      <nav style="display: flex; gap: 2rem; align-items: center;">
+        <a href="/#articles" style="color: var(--text-ink); text-decoration: none;">Articles</a>
+        <a href="/the-earn-lens.html" style="color: var(--text-ink); text-decoration: none; font-weight: 600;">The Earn Lens</a>
+        <a href="#testflight" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.95rem;">Join Beta</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="app-hero">
+      <span class="handwritten">honestly? spending is just trading time.</span><br><br>
+      <div class="badge-beta"><div class="badge-dot"></div> iOS & Android TestFlight Beta</div>
+      <h1 style="margin-top: 1rem;">The Earn Lens</h1>
+      <p class="lead">
+        A quiet, distraction-free utility designed to reframe your spending. Measure purchases not in currency, but in the hours of life required to earn them.
+      </p>
+    </section>
+
+    <!-- Feature Set -->
+    <section class="feature-grid">
+      <div class="feature-card">
+        <h3>1. Real-Time Conversion</h3>
+        <p>Input any price to instantly see its cost translated into your actual working hours after tax. Real decisions beat abstract numbers.</p>
+      </div>
+      <div class="feature-card">
+        <h3>2. Opportunity Audits</h3>
+        <p>Compare recurring expenses against your long-term intentional goals. Identify exact trade-offs before committing[cite: 1].</p>
+      </div>
+      <div class="feature-card">
+        <h3>3. Zero Distractions</h3>
+        <p>No bright charts, complex finance graphs, or aggressive notifications[cite: 1]. Just clear, considered utility designed to give you clarity[cite: 1].</p>
+      </div>
+    </section>
+
+    <!-- TestFlight Waitlist Callout -->
+    <section id="testflight" class="testflight-box">
+      <h2>Get Early Access via TestFlight</h2>
+      <p style="margin-top: 0.5rem;">We are currently conducting closed testing for iOS and Android. Enter your email to receive an instant TestFlight invite when the next batch opens.</p>
+
+      <form onsubmit="event.preventDefault(); alert('You have been added to the TestFlight beta waitlist.');">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit" class="btn-primary">Request Invite</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer style="padding: 3rem 0; border-top: 1px solid var(--bg-stone-light); text-align: center; margin-top: 4rem;">
+    <div class="container">
+      <img src="assets/dandelion-mark.png" alt="Wisely Spent Dandelion" width="24" style="opacity: 0.8;">
+      <p style="font-size: 0.95rem; color: var(--text-ink-light); margin-top: 0.75rem;">
+        Wisely Spent — Spend intentionally, earn meaningfully[cite: 1].
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
