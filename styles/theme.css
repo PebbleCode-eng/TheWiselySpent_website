@@ -1,0 +1,107 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+:root {
+  /* Brand Palette */
+  --bg-warm-white: #FAF8F4;
+  --bg-cream: #F5F0E8;
+  --bg-stone-light: #E0D8CC;
+  --bg-stone: #C4B8A4;
+  
+  --text-ink: #2C2C27;
+  --text-ink-light: #5A5A52;
+  
+  /* Accents - STRICT RULE: Use max 1 accent per page/view */
+  --accent-sage: #8A9A7E;
+  --accent-sage-light: #BDC9B3;
+  --accent-rust: #B8795A;
+  --accent-rust-light: #D4A48A;
+
+  /* Typography Families */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-handwriting: 'Caveat', cursive;
+}
+
+/* Global Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-warm-white);
+  color: var(--text-ink);
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--text-ink);
+}
+
+h1 { font-size: 3.2rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.5rem; }
+
+/* Handwritten Personal Aside Rule */
+.handwritten {
+  font-family: var(--font-handwriting);
+  font-size: 1.5rem;
+  color: var(--accent-rust);
+  display: inline-block;
+  transform: rotate(-1.5deg);
+}
+
+/* Reusable UI Components */
+.btn-primary {
+  background-color: var(--text-ink);
+  color: var(--bg-cream);
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  padding: 0.85rem 1.8rem;
+  border: 1px solid var(--text-ink);
+  border-radius: 0;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--text-ink);
+}
+
+.badge-beta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--bg-stone-light);
+  color: var(--text-ink);
+  padding: 0.35rem 0.85rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-sage);
+  border-radius: 50%;
+}
+
+/* Container Scaffolding */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
