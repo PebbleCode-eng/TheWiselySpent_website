@@ -56,6 +56,20 @@
       font-size: 1rem;
       flex: 1;
     }
+    .testflight-box .form-status {
+      min-height: 1.6em;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    .testflight-box .hp-field {
+      position: absolute;
+      left: -9999px;
+    }
+    @media (max-width: 520px) {
+      .testflight-box form {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
@@ -79,7 +93,7 @@
     <!-- Hero Section -->
     <section class="app-hero">
       <span class="handwritten">honestly? spending is just trading time.</span><br><br>
-      <div class="badge-beta"><div class="badge-dot"></div> iOS & Android TestFlight Beta</div>
+      <div class="badge-beta"><div class="badge-dot"></div> Currently on iPhone · Android coming soon</div>
       <h1 style="margin-top: 1rem;">The Earn Lens</h1>
       <p class="lead">
         A quiet, distraction-free utility designed to reframe your spending. Measure purchases not in currency, but in the hours of life required to earn them.
@@ -104,13 +118,16 @@
 
     <!-- TestFlight Waitlist Callout -->
     <section id="testflight" class="testflight-box">
-      <h2>Get Early Access via TestFlight</h2>
-      <p style="margin-top: 0.5rem;">We are currently conducting closed testing for iOS and Android. Enter your email to receive an instant TestFlight invite when the next batch opens.</p>
+      <h2>Get Early Access</h2>
+      <p style="margin-top: 0.5rem;">The Earn Lens is currently on iPhone, with Android coming soon. Join the waitlist and we'll email you a TestFlight invite when the next batch of beta spots opens.</p>
 
-      <form onsubmit="event.preventDefault(); alert('You have been added to the TestFlight beta waitlist.');">
-        <input type="email" placeholder="Your email address" required>
+      <form id="waitlist-form" novalidate>
+        <input type="email" name="email" placeholder="Your email address" autocomplete="email" required>
+        <input type="text" name="company" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit" class="btn-primary">Request Invite</button>
       </form>
+      <p class="form-status" id="waitlist-status" role="status" aria-live="polite"></p>
+      <p style="font-size: 0.9rem; color: var(--text-ink-light);">We'll only use your email for beta invites and launch news. See our <a href="/privacy.html" style="color: var(--text-ink);">Privacy Policy</a>.</p>
     </section>
   </main>
 
@@ -136,6 +153,62 @@
     </div>
   </div>
 </footer>
+
+  <script>
+    // Public Supabase project URL and anon key. The anon key is safe to expose:
+    // row level security only lets it insert into the waitlist table.
+    const SUPABASE_URL = 'https://YOUR-PROJECT-REF.supabase.co';
+    const SUPABASE_ANON_KEY = 'YOUR-ANON-KEY';
+
+    const form = document.getElementById('waitlist-form');
+    const status = document.getElementById('waitlist-status');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = form.email.value.trim().toLowerCase();
+
+      // Bots fill the hidden field; quietly pretend it worked
+      if (form.company.value) {
+        status.textContent = "Thanks! You're on the waitlist.";
+        form.reset();
+        return;
+      }
+      if (!form.email.checkValidity() || !email) {
+        status.textContent = 'Please enter a valid email address.';
+        return;
+      }
+
+      const button = form.querySelector('button');
+      button.disabled = true;
+      status.textContent = 'Adding you to the waitlist…';
+
+      try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/beta_waitlist`, {
+          method: 'POST',
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({ email, platform: 'ios', source: 'the-earn-lens' })
+        });
+
+        // 409 means the email is already on the list, which is fine
+        if (response.ok || response.status === 409) {
+          status.textContent = "Thanks! You're on the waitlist. We'll email you when your invite is ready.";
+          form.reset();
+        } else {
+          throw new Error(`Waitlist signup failed: ${response.status}`);
+        }
+      } catch (error) {
+        console.error(error);
+        status.innerHTML = 'Something went wrong. Please try again, or email <a href="mailto:support@thewiselyspent.com" style="color: var(--text-ink);">support@thewiselyspent.com</a>.';
+      } finally {
+        button.disabled = false;
+      }
+    });
+  </script>
 
 </body>
 </html>
