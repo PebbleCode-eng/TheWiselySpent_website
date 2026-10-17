@@ -155,10 +155,10 @@
 </footer>
 
   <script>
-    // Public Supabase project URL and anon key. The anon key is safe to expose:
+    // Public Supabase project URL and publishable key. The key is safe to expose:
     // row level security only lets it insert into the waitlist table.
-    const SUPABASE_URL = 'https://YOUR-PROJECT-REF.supabase.co';
-    const SUPABASE_ANON_KEY = 'YOUR-ANON-KEY';
+    const SUPABASE_URL = 'https://pzicbboxhpvzwxdfbfqd.supabase.co';
+    const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_U6I3RxnM9DL9TH6gDOz9NQ_vQMLmox_';
 
     const form = document.getElementById('waitlist-form');
     const status = document.getElementById('waitlist-status');
@@ -186,8 +186,7 @@
         const response = await fetch(`${SUPABASE_URL}/rest/v1/beta_waitlist`, {
           method: 'POST',
           headers: {
-            'apikey': SUPABASE_ANON_KEY,
-            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+            'apikey': SUPABASE_PUBLISHABLE_KEY,
             'Content-Type': 'application/json',
             'Prefer': 'return=minimal'
           },
