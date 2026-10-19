@@ -10,13 +10,45 @@
     /* Page-specific styling */
     .app-hero {
       padding: 5rem 0 3rem 0;
-      text-align: center;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      align-items: center;
+      gap: 3rem;
     }
     .app-hero p.lead {
       font-size: 1.35rem;
       color: var(--text-ink-light);
       max-width: 620px;
-      margin: 1.5rem auto 2rem auto;
+      margin: 1.5rem 0 0 0;
+    }
+    .app-hero-image {
+      margin: 0;
+      justify-self: center;
+      width: 100%;
+      max-width: 400px;
+    }
+    .app-hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+    @media (max-width: 768px) {
+      .app-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+        padding: 3rem 0 2rem 0;
+      }
+      .app-hero p.lead {
+        margin: 1.5rem auto 0 auto;
+      }
+      .app-hero-image {
+        max-width: 280px;
+        order: -1;
+      }
     }
     
     .feature-grid {
@@ -91,11 +123,16 @@
   <main class="container">
     <!-- Hero Section -->
     <section class="app-hero">
-      <div class="badge-beta"><div class="badge-dot"></div> Currently on iPhone · Android coming soon</div>
-      <h1 style="margin-top: 1rem;">The Earn Lens</h1>
-      <p class="lead">
-        Make your time count. Track every income stream, log the hours you work, and see what each hour is really worth, so you can build toward the life you want.
-      </p>
+      <div class="app-hero-text">
+        <div class="badge-beta"><div class="badge-dot"></div> Currently on iPhone · Android coming soon</div>
+        <h1 style="margin-top: 1rem;">The Earn Lens</h1>
+        <p class="lead">
+          Make your time count. Track every income stream, log the hours you work, and see what each hour is really worth, so you can build toward the life you want.
+        </p>
+      </div>
+      <figure class="app-hero-image">
+        <img src="assets/images/home-office.jpg" alt="A calm home office desk by a window with plants and a laptop" loading="eager" width="900" height="900">
+      </figure>
     </section>
 
     <!-- Feature Set -->
